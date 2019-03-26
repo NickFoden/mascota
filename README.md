@@ -1,4 +1,4 @@
-##Welcome to Mascota
+## Welcome to Mascota
 
 We have a goal of pairing rescue pets in need of a ride with drivers already driving to their destination. This is an open source project and we welcome contributions. Please join us.
 
