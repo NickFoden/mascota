@@ -11,16 +11,20 @@ const INITIAL_STATE = {
   error: null,
 };
 
+const labelStyle = {
+  fontSize: "14pt",
+}
+
 const SignInPage = () => (
   <div>
-    <h1>SignIn</h1>
+    <h1>Sign In</h1>
     <SignInForm />
   </div>
 );
 
 class SignInFormBase extends Component {
   state = { ...INITIAL_STATE }
-  
+
   signInUser = () => {
     const { email, password } = this.state;
 
@@ -33,9 +37,9 @@ class SignInFormBase extends Component {
       .catch(error => {
         this.setState({ error });
       });
-    
+
   }
-  
+
   render() {
     const { email, password, error } = this.state;
 
@@ -43,23 +47,28 @@ class SignInFormBase extends Component {
     return (
       <Container maxWidth={400}>
         <h1>Welcome again!</h1>
-        <Label htmlFor='email'>Email</Label>
+        <Label htmlFor='email' style={labelStyle}>Email</Label>
+        <br></br>
         <Input
           id='email'
           name='email'
           value={this.state.email}
-          onChange={e => this.setState({email: e.target.value})}
+          onChange={e => this.setState({ email: e.target.value })}
           placeholder='hello@example.com'
         />
-        <Label htmlFor='password'>Password</Label>
+        <br></br>
+        <Label htmlFor='password' style={labelStyle}>Password</Label>
+        <br></br>
         <Input
           id='password'
           name='password'
           value={this.state.password}
-          onChange={e => this.setState({password: e.target.value})}
+          onChange={e => this.setState({ password: e.target.value })}
           type='password'
         />
         {error && <p>{error.message}</p>}
+        <br>
+        </br>
         <Button
           onClick={this.signInUser}
           disabled={isInvalid}
@@ -72,9 +81,9 @@ class SignInFormBase extends Component {
 }
 
 const SignInForm = compose(
-    withRouter,
-    withFirebase,
-  )(SignInFormBase)
+  withRouter,
+  withFirebase,
+)(SignInFormBase)
 
 export default SignInPage;
 
