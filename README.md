@@ -2,6 +2,8 @@
 
 We have a goal of pairing rescue pets in need of a ride with drivers already driving to their destination. This is an open source project and we welcome contributions. Please join us.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3941c62e-444f-48d9-b91f-5b97741d7837/deploy-status)](https://app.netlify.com/sites/mascota/deploys)
+
 ## Available Scripts
 
 In the project directory, you can run:
