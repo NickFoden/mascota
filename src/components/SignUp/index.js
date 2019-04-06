@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
-import { Container, Label, Input, Button, Heading } from 'pcln-design-system'
-import { withFirebase } from '../Firebase';
-import * as ROUTES from '../../constants/routes';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import { compose } from "recompose";
+import { Container, Label, Input, Button, Heading } from "pcln-design-system";
+import { withFirebase } from "../Firebase";
+import * as ROUTES from "../../constants/routes";
 
 const SignUpPage = () => (
   <div>
@@ -12,23 +12,23 @@ const SignUpPage = () => (
   </div>
 );
 
-const lableStyle = {
-  fontSize: "14pt",
-}
-
 const INITIAL_STATE = {
-  username: '',
-  email: '',
-  password: '',
-  confirmPass: '',
-  error: null,
+  username: "",
+  email: "",
+  password: "",
+  confirmPass: "",
+  error: null
 };
 
 class SignUpFormBase extends Component {
-  state = { ...INITIAL_STATE }
+  state = { ...INITIAL_STATE };
 
   registerUser = () => {
-    const { username, email, password } = this.state;
+    const {
+      // username,
+      email,
+      password
+    } = this.state;
 
     this.props.firebase
       .doCreateUserWithEmailAndPassword(email, password)
@@ -39,87 +39,74 @@ class SignUpFormBase extends Component {
       .catch(error => {
         this.setState({ error });
       });
-  }
+  };
 
   render() {
     const {
       username,
       email,
       password,
-      confirmPass,
-      error,
+      confirmPass
+      // error
     } = this.state;
 
     const isInvalid =
       password !== confirmPass ||
-      password === '' ||
-      email === '' ||
-      username === '';
+      password === "" ||
+      email === "" ||
+      username === "";
 
     return (
       <Container maxWidth={400}>
         <h1>Welcome!</h1>
-        <Label htmlFor='username' style={lableStyle}>Username</Label>
-        <br></br>
+        <Label htmlFor="username">Username</Label>
         <Input
-          id='username'
+          id="username"
           value={username}
           onChange={e => this.setState({ username: e.target.value })}
-          name='username'
+          name="username"
         />
-        <br></br>
-        <Label htmlFor='email' style={lableStyle}>Email</Label>
-        <br></br>
+        <Label htmlFor="email">Email</Label>
         <Input
-          id='email'
+          id="email"
           value={email}
           onChange={e => this.setState({ email: e.target.value })}
-          name='email'
-          type='email'
-          placeholder='hello@example.com'
+          name="email"
+          type="email"
+          placeholder="hello@example.com"
         />
-        <br></br>
-        <Label htmlFor='password' style={lableStyle}>Password</Label>
-        <br></br>
-
+        <Label htmlFor="password">Password</Label>
         <Input
-          id='password'
+          id="password"
           value={password}
           onChange={e => this.setState({ password: e.target.value })}
-          name='password'
-          type='password'
+          name="password"
+          type="password"
         />
-        <br></br>
-        <Label htmlFor='confirmPass' style={lableStyle}>Confirm password</Label>
-        <br></br>
+        <Label htmlFor="confirmPass">Confirm password</Label>
         <Input
-          id='confirmPass'
+          id="confirmPass"
           value={confirmPass}
           onChange={e => this.setState({ confirmPass: e.target.value })}
-          name='confirmPass'
-          type='password'
+          name="confirmPass"
+          type="password"
         />
-        <Heading.h5 color='red' style={lableStyle}>{
-          this.state.error
-            ? this.state.error.message
-            : null
-        }</Heading.h5>
-        <Button
-          onClick={this.registerUser}
-          disabled={isInvalid}
-        >
+        <Heading.h5 color="red">
+          {this.state.error ? this.state.error.message : null}
+        </Heading.h5>
+        <Button onClick={this.registerUser} disabled={isInvalid}>
           Lets help some pets
-          </Button>
+        </Button>
       </Container>
-    )
+    );
   }
-};
+}
 
 const SignUpForm = compose(
   withRouter,
-  withFirebase,
-)(SignUpFormBase)
+  withFirebase
+)(SignUpFormBase);
 
 export default SignUpPage;
 
-export { SignUpForm }
+export { SignUpForm };
