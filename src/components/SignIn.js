@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { navigate } from "@reach/router";
 import { Container, Input, Button } from "pcln-design-system";
 import { signIn } from "../actions";
 // import styles from "./styles.module.css";
@@ -21,6 +23,9 @@ class SignInPage extends Component {
 
   render() {
     const { email, password, error } = this.state;
+    if (this.props.auth) {
+      navigate("/");
+    }
 
     const isInvalid = password === "" || email === "";
     return (
@@ -55,4 +60,9 @@ class SignInPage extends Component {
   }
 }
 
-export default SignInPage;
+const mapStateToProps = state => ({
+  auth: state.user.auth,
+  user: state.user.currentUserProps
+});
+
+export default connect(mapStateToProps)(SignInPage);
