@@ -6,7 +6,7 @@ import {
   signIn,
   signOut,
   signUp
-} from "./userActions";
+} from "./UserActions";
 
 export {
   clearUserProps,
