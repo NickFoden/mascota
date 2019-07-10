@@ -1,35 +1,25 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import { Flex } from "pcln-design-system";
 import { connect } from "react-redux";
 import SignOutButton from "./SignOut";
 import * as ROUTES from "../constants/Routes";
+import styles from "./styles.module.css";
 
-const linkStyle = {
-  color: "white",
-  padding: "20px",
-  width: "25%"
-};
 class Navigation extends Component {
   render() {
     return (
-      <div>
-        <Flex color="white" bg="blue">
-          <Link to={ROUTES.HOME} style={linkStyle}>
-            Home
-          </Link>
-          <Link to={ROUTES.LANDING} style={linkStyle}>
-            Landing
-          </Link>
-          <Link to={ROUTES.SIGN_IN} style={linkStyle}>
-            Sign In
-          </Link>
-          <Link to={ROUTES.SIGN_UP} style={linkStyle}>
-            Sign Up
-          </Link>
-          {this.props.auth && <SignOutButton />}
-        </Flex>
-      </div>
+      <nav className={styles.nav}>
+        <Link to={ROUTES.HOME} className={styles.linkStyle}>
+          Home
+        </Link>
+        <Link to={ROUTES.LANDING} className={styles.linkStyle}>
+          Landing
+        </Link>
+        <Link to={ROUTES.SIGN_IN} className={styles.linkStyle}>
+          Sign In
+        </Link>
+        {this.props.auth && <SignOutButton />}
+      </nav>
     );
   }
 }
