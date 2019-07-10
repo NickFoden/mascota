@@ -1,6 +1,8 @@
-export default {
-  LANDING: "/",
-  SIGN_IN: "/sign-in",
+const ROUTES = {
   HOME: "/home",
-  PASSWORD_FORGET: "/pw-forget"
+  LANDING: "/",
+  PASSWORD_FORGET: "/pw-forget",
+  SIGN_IN: "/sign-in"
 };
+
+export default ROUTES;
