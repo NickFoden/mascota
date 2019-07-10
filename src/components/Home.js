@@ -1,15 +1,16 @@
 import React from "react";
 import trademarksAnimals from "../assets/trademarksAnimals.jpg";
+import styles from "./styles.module.css";
 
 const HomePage = () => (
-  <div>
-    <h1> Home Page </h1>
+  <section className={styles.firstSection}>
+    <h1> Home </h1>
     <img
       src={trademarksAnimals}
-      className="App-trademarksAnimals"
+      className={styles.heroImage}
       alt="trademarksAnimals"
     />
-  </div>
+  </section>
 );
 
 export default HomePage;

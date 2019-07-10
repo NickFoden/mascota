@@ -57,7 +57,11 @@ export const signUp = (email, password) => {
     });
 };
 
-export const signOut = () => auth().signOut();
+export const signOut = () => {
+  auth.signOut().catch(err => {
+    console.error(err);
+  });
+};
 
 export const createUser = (uid, email) => {
   const DocRef = db.collection("users").doc(`${uid}`);

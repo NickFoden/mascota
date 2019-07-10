@@ -7,6 +7,17 @@
   --Roboto: "Roboto Condensed", sans-serif;
 }
 
+.firstSection {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: 25px 0;
+  width: 100vw;
+}
+.heroImage {
+  width: 500px;
+}
+
 .linkStyle {
   color: white;
   font-family: var(--Roboto);
@@ -25,4 +36,5 @@
   background: var(--Blue);
   display: flex;
   justify-content: space-between;
+  padding-left: 50px;
 }
