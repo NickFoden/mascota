@@ -21,7 +21,7 @@ function userReducer(state = initialState, action) {
     case SET_AUTH_USER: {
       return {
         ...state,
-        auth: action.user
+        auth: action.payload
       };
     }
     case SET_USER_PROPS: {

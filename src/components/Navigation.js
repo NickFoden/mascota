@@ -15,10 +15,14 @@ class Navigation extends Component {
         <Link to={ROUTES.LANDING} className={styles.linkStyle}>
           Landing
         </Link>
-        <Link to={ROUTES.SIGN_IN} className={styles.linkStyle}>
-          Sign In
-        </Link>
-        {this.props.auth && <SignOutButton />}
+
+        {this.props.auth ? (
+          <SignOutButton />
+        ) : (
+          <Link to={ROUTES.SIGN_IN} className={styles.linkStyle}>
+            Sign In
+          </Link>
+        )}
       </nav>
     );
   }

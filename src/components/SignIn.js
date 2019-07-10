@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Container, Label, Input, Button } from "pcln-design-system";
+import { Container, Input, Button } from "pcln-design-system";
 import { signIn } from "../actions";
-// import * as ROUTES from "../constants/Routes";
+import styles from "./styles.module.css";
 
 const INITIAL_STATE = {
   email: "",
@@ -9,23 +9,14 @@ const INITIAL_STATE = {
   error: null
 };
 
-const labelStyle = {
-  fontSize: "14pt"
-};
-
-// const SignInPage = () => (
-//   <div>
-//     <h1>Sign In</h1>
-//     <SignInForm />
-//   </div>
-// );
-
-class SignIn extends Component {
+class SignInPage extends Component {
   state = { ...INITIAL_STATE };
 
-  signInUser = () => {
+  signInUser = async e => {
+    e.preventDefault();
     const { email, password } = this.state;
-    signIn(email, password).then();
+
+    signIn(email, password);
   };
 
   render() {
@@ -33,39 +24,35 @@ class SignIn extends Component {
 
     const isInvalid = password === "" || email === "";
     return (
-      <Container maxWidth={400}>
+      <Container maxWidth={400} className="sign-in-container">
         <h1>Welcome again!</h1>
-        <Label htmlFor="email" style={labelStyle}>
-          Email
-        </Label>
-        <br />
-        <Input
-          id="email"
-          name="email"
-          value={this.state.email}
-          onChange={e => this.setState({ email: e.target.value })}
-          placeholder="hello@example.com"
-        />
-        <br />
-        <Label htmlFor="password" style={labelStyle}>
-          Password
-        </Label>
-        <br />
-        <Input
-          id="password"
-          name="password"
-          value={this.state.password}
-          onChange={e => this.setState({ password: e.target.value })}
-          type="password"
-        />
-        {error && <p>{error.message}</p>}
-        <br />
-        <Button onClick={this.signInUser} disabled={isInvalid}>
-          Lets help some pets
-        </Button>
+        <form>
+          <Input
+            id="email"
+            name="email"
+            value={this.state.email}
+            onChange={e => this.setState({ email: e.target.value })}
+            placeholder="hello@example.com"
+          />
+          <br />
+          <Input
+            autocomplete="password"
+            id="password"
+            name="password"
+            value={this.state.password}
+            onChange={e => this.setState({ password: e.target.value })}
+            placeholder="password"
+            type="password"
+          />
+          {error && <p>{error.message}</p>}
+          <br />
+          <Button onClick={e => this.signInUser(e)} disabled={isInvalid}>
+            Lets help some pets
+          </Button>
+        </form>
       </Container>
     );
   }
 }
 
-export default SignIn;
+export default SignInPage;

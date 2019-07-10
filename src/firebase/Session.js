@@ -11,7 +11,7 @@ const withAuthentication = Component => {
       auth.onAuthStateChanged(authUser => {
         authUser
           ? setAuthUser(authUser) && loadUser(authUser.uid)
-          : clearUserProps({});
+          : clearUserProps();
       });
     }
 
@@ -23,13 +23,13 @@ const withAuthentication = Component => {
   const mapDispatchToProps = dispatch => {
     return {
       actions: {
-        clearUserProps: () => {
+        clearUserProps: function() {
           dispatch(clearUserProps());
         },
-        loadUser: uid => {
+        loadUser: function(uid) {
           dispatch(loadUser(uid));
         },
-        setAuthUser: authUser => {
+        setAuthUser: function(authUser) {
           dispatch(setAuthUser(authUser));
         }
       }
