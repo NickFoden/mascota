@@ -1,0 +1,28 @@
+:root {
+  --Blue: DarkCyan;
+  --Literata: "Literata", serif;
+  --Lato: "Lato", sans-serif;
+  --Montserrat: "Montserrat", sans-serif;
+  --Open: "Open Sans", sans-serif;
+  --Roboto: "Roboto Condensed", sans-serif;
+}
+
+.linkStyle {
+  color: white;
+  font-family: var(--Roboto);
+  font-size: 1.5rem;
+  padding: 20px;
+  text-decoration: none;
+  width: 25%;
+}
+
+.linkStyle:hover {
+  color: black;
+  opacity: 0.5;
+}
+
+.nav {
+  background: var(--Blue);
+  display: flex;
+  justify-content: space-between;
+}
