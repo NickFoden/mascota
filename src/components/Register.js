@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { compose } from "recompose";
 import { Container, Label, Input, Button, Heading } from "pcln-design-system";
-import { withFirebase } from "../Firebase";
-import * as ROUTES from "../../constants/routes";
+import * as ROUTES from "../constants/Routes";
 
-const SignUpPage = () => (
-  <div>
-    <h1>Sign Up</h1>
-    <SignUpForm />
-  </div>
-);
+// const SignUpPage = () => (
+//   <div>
+//     <h1>Sign Up</h1>
+//     <SignUpForm />
+//   </div>
+// );
 
 const INITIAL_STATE = {
   username: "",
@@ -20,7 +17,7 @@ const INITIAL_STATE = {
   error: null
 };
 
-class SignUpFormBase extends Component {
+class Register extends Component {
   state = { ...INITIAL_STATE };
 
   registerUser = () => {
@@ -102,11 +99,4 @@ class SignUpFormBase extends Component {
   }
 }
 
-const SignUpForm = compose(
-  withRouter,
-  withFirebase
-)(SignUpFormBase);
-
-export default SignUpPage;
-
-export { SignUpForm };
+export default Register;
