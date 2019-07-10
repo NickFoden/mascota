@@ -1,17 +1,21 @@
-import { auth } from "../firebase/";
+import { auth } from "../firebase";
+import {
+  CLEAR_USER_PROPS,
+  SET_AUTH_USER,
+  SET_USER_PROPS
+} from "../constants/Types";
 
-const CLEAR_USER_PROPS = "CLEAR_USER_PROPS";
 export const clearUserProps = () => {
   return { type: CLEAR_USER_PROPS };
 };
 
-const SET_AUTH_USER = "SET_AUTH_USER";
 export const setAuthUser = payload => {
   return { SET_AUTH_USER, payload };
 };
 
 export const loadUser = id => {
   console.log("Load this user " + id);
+  return { SET_USER_PROPS, id };
 };
 
 export const resetPassword = email => auth.sendPasswordResetEmail(email);

@@ -6,7 +6,7 @@ import { clearUserProps, loadUser, setAuthUser } from "../actions";
 const withAuthentication = Component => {
   class WithAuthentication extends React.Component {
     componentDidMount() {
-      const { setAuthUser, clearUserProps, loadUser } = this.props;
+      const { setAuthUser, clearUserProps, loadUser } = this.props.actions;
 
       auth.onAuthStateChanged(authUser => {
         authUser
