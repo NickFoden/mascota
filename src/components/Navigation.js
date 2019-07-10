@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import { connect } from "react-redux";
 import SignOutButton from "./SignOut";
-import * as ROUTES from "../constants/Routes";
+import ROUTES from "../constants/Routes";
 import styles from "./styles.module.css";
 
 class Navigation extends Component {

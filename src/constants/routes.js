@@ -1,4 +1,6 @@
-export const LANDING = "/";
-export const SIGN_IN = "/sign-in";
-export const HOME = "/home";
-export const PASSWORD_FORGET = "/pw-forget";
+export default {
+  LANDING: "/",
+  SIGN_IN: "/sign-in",
+  HOME: "/home",
+  PASSWORD_FORGET: "/pw-forget"
+};
