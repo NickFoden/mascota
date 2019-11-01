@@ -7,7 +7,7 @@
     "@reach/router": "^1.2.1",
     "@testing-library/react": "^8.0.4",
     "dotenv": "^8.0.0",
-    "firebase": "^6.2.4",
+    "firebase": "^7.2.3",
     "pcln-design-system": "^2.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
