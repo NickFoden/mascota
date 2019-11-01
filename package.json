@@ -9,7 +9,7 @@
     "dotenv": "^8.0.0",
     "firebase": "^6.2.4",
     "pcln-design-system": "^2.1.1",
-    "react": "^16.8.6",
+    "react": "^16.11.0",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
     "react-scripts": "3.0.1",
